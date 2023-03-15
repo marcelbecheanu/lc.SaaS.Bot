@@ -1,0 +1,18 @@
+{
+  "name": "lc.SaaS.Bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "repository": "https://github.com/LightCode-Software/lc.SaaS.Bot.git",
+  "author": "Marcel Becheanu <marcel.becheanu@lightcode.pt>, Mauro Amaro <mauro.amaro@lightcode.pt>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.21"
+  },
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon"
+  }
+}
