@@ -6,7 +6,10 @@
   "repository": "https://github.com/LightCode-Software/lc.SaaS.Bot.git",
   "author": "Marcel Becheanu <marcel.becheanu@lightcode.pt>, Mauro Amaro <mauro.amaro@lightcode.pt>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.18.2"
+  },
   "devDependencies": {
     "jest": "^29.5.0",
     "nodemon": "^2.0.21"
