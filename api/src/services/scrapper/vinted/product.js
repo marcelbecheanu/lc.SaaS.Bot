@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 function getInfoProduct({ cookie, productid }) {
     return new Promise((resolve, reject) => {
@@ -34,4 +34,4 @@ function getAllProductUser({ cookie, userid }) {
     });
 }
 
-export default { getAllProductUser, getInfoProduct };
+module.exports = { getAllProductUser, getInfoProduct };

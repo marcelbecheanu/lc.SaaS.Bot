@@ -1,7 +1,7 @@
-import Product from './product.js';
-import User from './user.js';
+const Product = require('./product');
+const User = require('./user');
 
-export default {
+module.exports = {
     Product,
     User
 }

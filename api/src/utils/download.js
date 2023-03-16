@@ -1,5 +1,5 @@
-import axios from 'axios';
-import fs from 'fs';
+const axios = require('axios');
+const fs = require('fs');
 
 function downloadImage({ url, path }){
   return new Promise((resolve, reject) => {
@@ -15,4 +15,4 @@ function downloadImage({ url, path }){
   });
 }
 
-export { downloadImage }
+module.exports = { downloadImage };

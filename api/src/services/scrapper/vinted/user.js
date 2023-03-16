@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 function getUserID({ cookie }) {
   return new Promise((resolve, reject) => {
@@ -9,6 +9,8 @@ function getUserID({ cookie }) {
       headers: {
         'Cookie': cookie
       }
+
+      
     }).then(response => {
         let data = response.headers["set-cookie"];
         let v_uid = data.map(cookie => cookie.split('; ').find(c => c.startsWith('v_uid='))).find(cookie => cookie !== undefined)?.split('=')[1];
@@ -22,4 +24,4 @@ function getUserID({ cookie }) {
   });
 }
 
-export default { getUserID }
+module.exports = { getUserID }
