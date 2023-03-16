@@ -26,7 +26,6 @@ async function republish(req, res) {
           );
         }
       }
-      
       await Promise.all(downloadPromises);
 
       res.status(200).json(productsOfUser);
@@ -36,4 +35,14 @@ async function republish(req, res) {
     }
   }
 
-module.exports = { republish }
+async function remove(req, res){
+  try {
+    const { token, product } = req.body;
+
+
+  } catch(error){
+
+  }
+}
+
+module.exports = { republish, remove }
