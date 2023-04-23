@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import * as cheerio from 'cheerio';
 
-import settings from '../../configs/settings.json';
+import settings from '../configs/settings.json';
 const { domain } = settings.scrappers.vinted;
 
 interface VintedUserID {
@@ -12,7 +12,7 @@ interface VintedUserID {
 interface VintedAuthorization {
   id: VintedUserID;
   token: string;
-  xcsrftoken: string;
+  csrfToken: string;
   headers?: { [key: string]: string };
 }
 
@@ -121,7 +121,7 @@ async function getUserProfile(authorization: VintedAuthorization): Promise<Vinte
       timeout: 2000,
       headers: {
         'Cookie': `_vinted_fr_session=${authorization.token}`,
-        'x-csrf-token': authorization.xcsrftoken,
+        'x-csrf-token': authorization.csrfToken,
       }
     });
 

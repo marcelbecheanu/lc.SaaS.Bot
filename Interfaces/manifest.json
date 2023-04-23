@@ -1,0 +1,55 @@
+{
+    "manifest_version": 2,
+    "name": "SelloBot: Vinted Automation Tool",
+    "version": "0.0.2",
+    "description": "Simplify your sales strategy, save time, and grow your online store effortlessly.",
+    "permissions": [
+        "<all_urls>",
+        "activeTab",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "tabs",
+        "contextMenus",
+        "cookies",
+        "bookmarks",
+        "history",
+        "alarms",
+        "notifications",
+        "identity",
+        "nativeMessaging"
+    ],
+    "icons": {
+        "16": "assets/icons/icon16.png",
+        "32": "assets/icons/icon32.png",
+        "48": "assets/icons/icon48.png",
+        "128": "assets/icons/icon128.png"
+    },
+    "background": {
+        "scripts": ["scripts/background.js"],
+        "persistent": true
+    },
+    "content_scripts": [
+        {   
+            "matches": [
+                "https://www.vinted.pt/",
+                "https://www.vinted.pt/*"
+            ],
+            "js": [
+                "./scripts/main.js",
+                "./scripts/init.js"
+            ],
+            "css": [
+                "./styles/main.css"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "pages/main.html",
+        "pages/open-main.html",
+        "assets/svgs/power-off-solid-grey.svg",
+        "assets/svgs/user-solid-grey.svg",
+        "assets/svgs/reupload-solid-grey.svg"
+       
+    ]
+}

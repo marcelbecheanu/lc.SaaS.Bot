@@ -5,10 +5,10 @@ import fs from 'fs';
 import {Blob} from 'buffer';
 
 
-import { VintedAuthorization } from './user.scrapper';
+import { VintedAuthorization } from './user.model';
 
-import settings from '../../configs/settings.json';
-import { downloadImage } from '../../utils/download';
+import settings from '../configs/settings.json';
+import { downloadImage } from '../utils/download';
 const { domain } = settings.scrappers.vinted;
 
 interface Product {
@@ -167,7 +167,7 @@ async function getInfoFromProduct(productId:number, authorization: VintedAuthori
             timeout: 4000,
             headers: {
                 'Cookie': `_vinted_fr_session=${authorization.token}`,
-                'x-csrf-token': authorization.xcsrftoken,
+                'x-csrf-token': authorization.csrfToken,
             }
         });
         let product:ProductInfo = response.data.item;
@@ -186,7 +186,7 @@ async function deleteProductById(productId: number, authorization: VintedAuthori
             timeout: 4000,
             headers: {
                 'Cookie': `_vinted_fr_session=${authorization.token}`,
-                'x-csrf-token': authorization.xcsrftoken,
+                'x-csrf-token': authorization.csrfToken,
             }
         });
         return true;
@@ -206,7 +206,7 @@ async function createProduct(product: ProductPublisher, authorization: VintedAut
                 'accept': 'application/json, text/plain, */*',
                 'content-type': 'application/json',
                 'Cookie': `_vinted_fr_session=${authorization.token}`,
-                'x-csrf-token': authorization.xcsrftoken,
+                'x-csrf-token': authorization.csrfToken,
             }
         })
         return true;
@@ -232,7 +232,7 @@ async function uploadImageToPost(imgPath: string, authorization: VintedAuthoriza
                 'accept': 'application/json, text/plain, */*',
                 'content-type': 'multipart/form-data',
                 'Cookie': `_vinted_fr_session=${authorization.token}`,
-                'x-csrf-token': authorization.xcsrftoken,
+                'x-csrf-token': authorization.csrfToken,
             }
         })
         return response.data;

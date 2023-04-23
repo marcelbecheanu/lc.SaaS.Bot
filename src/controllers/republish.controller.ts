@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { AxiosError } from 'axios';
-import { VintedAuthorization, getXCSRFToken, getUserID } from '../../services/vinted/user.scrapper';
-import { Product, ProductInfo, getAllProducts, getInfoFromProduct, republishProduct } from '../../services/vinted/product.scrapper';
+import { VintedAuthorization, getXCSRFToken, getUserID } from '../models/user.model';
+import { Product, ProductInfo, getAllProducts, getInfoFromProduct, republishProduct } from '../models/product.model';
 
 async function republish(req: Request, res: Response): Promise<Response> {
   try { 
@@ -20,7 +20,7 @@ async function republish(req: Request, res: Response): Promise<Response> {
     let userDetails: VintedAuthorization = {
         id: userid,
         token: token,
-        xcsrftoken: xcsrftoken,
+        csrfToken: xcsrftoken,
     }
     
     // Getting all products from user
